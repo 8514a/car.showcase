@@ -17,8 +17,8 @@ export default async function Home(props: HomeProps) {
     model: searchParams.model || "",
   }); 
 
-
-
+console.log("🚗 allCars:", allCars);
+console.log(allCars);
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -43,8 +43,8 @@ export default async function Home(props: HomeProps) {
         {!isDataEmpty ? (
           <section>
             <div className='home__cars-wrapper'>
-              {allCars?.map((car) => (
-                <CarCard car={car} />
+              {allCars?.map((car, index) => (
+                <CarCard key={index} car={car} />
               ))}
             </div>
            
